@@ -8,9 +8,13 @@
 
 
 <style lang="scss">
+@use 'sass:map';
 @use '@/assets/sass/reset.scss' as *;
-$red: red;
-body{
-  color: $red;
+@use '@/assets/sass/fonts.scss' as *;
+
+
+p{
+  font-size: $main-size;
+  font-weight: map.get($weights, 'small');
 }
 </style>
