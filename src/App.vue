@@ -8,6 +8,7 @@
 
 
 <style lang="scss">
+@use '@/assets/sass/reset.scss' as *;
 $red: red;
 body{
   color: $red;
