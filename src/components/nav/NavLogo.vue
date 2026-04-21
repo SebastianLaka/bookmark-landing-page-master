@@ -1,3 +1,5 @@
 <script setup></script>
-<template></template>
+<template>
+    <slot name="nav-logo"/>
+</template>
 <style lang="scss" scoped></style>
