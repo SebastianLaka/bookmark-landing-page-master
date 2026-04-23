@@ -12,5 +12,6 @@ import CloseIcon from '@/assets/icons/icon-close.svg'
 <style lang="scss" scoped>
 .nav-button{
     padding: .5em;
+    border: none;
 }
 </style>
