@@ -12,6 +12,7 @@ const props = defineProps<{
         {{ navItem.title }}
       </router-link>
     </li>
+    <slot name="login-cta" />
   </ul>
 </template>
 <style lang="scss" scoped></style>

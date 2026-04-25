@@ -23,7 +23,11 @@ const navList = ref([
 <template>
   <nav class="nav-menu">
     <NavLogo />
-    <NavMenu :items="navList"/>
+    <NavMenu :items="navList">
+      <template #login-cta>
+        <Button>LOGIN</Button>
+      </template>
+    </NavMenu>
     <NavButton />
   </nav>
 </template>
