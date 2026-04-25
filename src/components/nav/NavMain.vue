@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import NavLogo from './NavLogo.vue'
 import NavButton from './NavButton.vue'
 import NavMenu from './NavMenu.vue'
+import Button from '../ReuseableComponents/Button.vue'
 
 const navList = ref([
   {
