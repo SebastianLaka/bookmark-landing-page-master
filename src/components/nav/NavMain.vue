@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import NavLogo from './NavLogo.vue'
 import NavButton from './NavButton.vue'
 import NavMenu from './NavMenu.vue'
-import Button from '../ReuseableComponents/Button.vue'
+import ListButton from '../ReuseableComponents/Button.vue'
 
 const navList = ref([
   {
@@ -26,19 +26,28 @@ const navList = ref([
     <NavLogo />
     <NavMenu :items="navList">
       <template #login-cta>
-        <Button>LOGIN</Button>
+        <ListButton class="navigation-cta">LOGIN</ListButton>
       </template>
     </NavMenu>
     <NavButton />
   </nav>
 </template>
 <style lang="scss" scoped>
+@use 'sass:map';
+@use '@/assets/sass/colors.scss' as *;
 @use '@/assets/sass/breakpoints.scss' as *;
 @use '@/assets/sass/mixins.scss' as *;
 @media (min-width: $mobile-view) {
   .nav-menu {
     @include flex-layout($justify-content: space-between);
     padding: 0.5em;
+  }
+  .navigation-cta{
+    border-radius: .4em;
+    border: .15em solid map.get($colors, 'neutral-grey-50');;
+    padding: .5em 5em;
+    background-color:transparent;
+    color: map.get($colors, 'neutral-grey-50');
   }
 }
 </style>
