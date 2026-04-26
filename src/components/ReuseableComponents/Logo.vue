@@ -5,4 +5,6 @@ const props = defineProps<Logo>()
 <template>
   <img :src="props.src" :alt="props.alt" />
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

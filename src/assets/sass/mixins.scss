@@ -18,3 +18,7 @@
     flex-wrap: $flex-wrap;
   }
 }
+@mixin set-gap($row-gap: null, $column-gap: null) {
+  row-gap: $row-gap;
+  column-gap: $column-gap;
+}
