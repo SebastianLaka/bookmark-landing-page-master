@@ -29,9 +29,7 @@ const navList = ref([
         <ListButton class="navigation-cta">LOGIN</ListButton>
       </template>
     </NavMenu>
-   
       <NavButton v-show="siteStore.isMobile" />
-    
   </nav>
 </template>
 <style lang="scss" scoped>
@@ -41,7 +39,6 @@ const navList = ref([
 @use '@/assets/sass/mixins.scss' as *;
 
 @media (min-width: $mobile-view) {
-
   .nav-menu {
     @include flex-layout($justify-content: space-between, $align-items: center);
     padding: 1.5em;
@@ -57,17 +54,19 @@ const navList = ref([
     width: 100%;
     margin-top: 1.5em;
   }
-  .fill {
-    filter: brightness(0) invert(1);
-  }
 }
 @media (min-width: $desktop-small) {
+  .nav-menu{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
   .navigation-cta {
     border: 0.15em solid map.get($colors, 'primary-red-400');
     background-color: map.get($colors, 'primary-red-400');
     padding: 0.5em 2em;
     font-size: 1rem;
     margin: 0;
+    width: 9.375em;
   }
 }
 </style>

@@ -22,7 +22,18 @@ const logoData = ref({
   </div>
 </template>
 <style lang="scss" scoped>
+@use '@/assets/sass/breakpoints.scss' as *;
 .logo-white {
   filter: invert(1) hue-rotate(180deg) brightness(2);
+}
+@media (min-width:$desktop-wide){
+    .logo-main{
+        grid-column: 2/4;
+    }
+}
+@media (min-width: $desktop-ultra-wide) {
+  .logo-main {
+    grid-column: 3/4;
+  }
 }
 </style>

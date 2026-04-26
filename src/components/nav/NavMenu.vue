@@ -12,25 +12,25 @@ const props = defineProps<{
 </script>
 <template>
   <Transition name="show">
-  <div class="mobile-menu" v-show="siteStore.isMobile && siteStore.isOpen">
-    <ul class="navigation-mobile">
-      <li
-        v-for="navItem in props.items"
-        :key="navItem.id"
-        :title="navItem.title"
-        class="navigation-mobile__item"
-      >
-        <router-link to="/view" class="navigation-mobile__item--link">
-          {{ navItem.title }}
-        </router-link>
-      </li>
-      <slot name="login-cta" />
-    </ul>
-    <div class="desktop-menu" v-show="siteStore.isDesktop">
-      <Icon :src="FacebookIcon" alt="Facebook icon" class="mobile-nav-icons__facebook-icon" />
-      <Icon :src="TwitterIcon" alt="Twitter icon" class="mobile-nav-icons__twitter-icon" />
+    <div class="mobile-menu" v-show="siteStore.isMobile && siteStore.isOpen">
+      <ul class="navigation-mobile">
+        <li
+          v-for="navItem in props.items"
+          :key="navItem.id"
+          :title="navItem.title"
+          class="navigation-mobile__item"
+        >
+          <router-link to="/view" class="navigation-mobile__item--link">
+            {{ navItem.title }}
+          </router-link>
+        </li>
+        <slot name="login-cta" />
+      </ul>
+      <div class="desktop-menu" v-show="siteStore.isDesktop">
+        <Icon :src="FacebookIcon" alt="Facebook icon" class="mobile-nav-icons__facebook-icon" />
+        <Icon :src="TwitterIcon" alt="Twitter icon" class="mobile-nav-icons__twitter-icon" />
+      </div>
     </div>
-  </div>
   </Transition>
   <div class="desktop-menu" v-show="siteStore.isDesktop">
     <ul class="navigation-desktop">
@@ -54,14 +54,14 @@ const props = defineProps<{
 @use '@/assets/sass/breakpoints.scss' as *;
 @use '@/assets/sass/mixins.scss' as *;
 @media (min-width: $mobile-view) {
-   .show-enter-active,
-    .show-leave-active {
-      transition: all 0.5s ease-in-out;
-    }
-    .show-enter-from,
-    .show-leave-to {
-      opacity: 0;
-    }
+  .show-enter-active,
+  .show-leave-active {
+    transition: all 0.5s ease-in-out;
+  }
+  .show-enter-from,
+  .show-leave-to {
+    opacity: 0;
+  }
   .mobile-menu {
     position: fixed;
     inset: 0;
@@ -101,6 +101,7 @@ const props = defineProps<{
 }
 @media (min-width: $desktop-small) {
   .desktop-menu {
+    grid-column: 8/13;
     position: static;
     .navigation-desktop {
       @include flex-layout($align-items: center);
@@ -111,6 +112,16 @@ const props = defineProps<{
         }
       }
     }
+  }
+}
+@media (min-width: $desktop-wide) {
+  .desktop-menu {
+    grid-column: 8/12;
+  }
+}
+@media (min-width: $desktop-ultra-wide) {
+  .desktop-menu {
+    grid-column: 7/11;
   }
 }
 </style>
