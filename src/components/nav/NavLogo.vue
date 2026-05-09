@@ -26,9 +26,18 @@ const logoData = ref({
 .logo-white {
   filter: invert(1) hue-rotate(180deg) brightness(2);
 }
+@media (min-width: $desktop-small){
+  .logo-main{
+    &__nav-logo{
+          width: 180px;
+          height: 32px;
+        }
+  }
+}
 @media (min-width:$desktop-wide){
     .logo-main{
         grid-column: 2/4;
+        
     }
 }
 @media (min-width: $desktop-ultra-wide) {
