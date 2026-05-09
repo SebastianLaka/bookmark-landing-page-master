@@ -26,7 +26,7 @@ const props = defineProps<{
         </li>
         <slot name="login-cta" />
       </ul>
-      <div class="desktop-menu" v-show="siteStore.isDesktop">
+      <div class="mobile-nav-icons">
         <Icon :src="FacebookIcon" alt="Facebook icon" class="mobile-nav-icons__facebook-icon" />
         <Icon :src="TwitterIcon" alt="Twitter icon" class="mobile-nav-icons__twitter-icon" />
       </div>
@@ -101,10 +101,10 @@ const props = defineProps<{
 }
 @media (min-width: $desktop-small) {
   .desktop-menu {
-    grid-column: 8/13;
+    grid-column: 7/13;
     position: static;
     .navigation-desktop {
-      @include flex-layout($align-items: center);
+      @include flex-layout($align-items: center, $justify-content: flex-end);
       @include set-gap(0, 2em);
       &__item {
         &--link {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Logo } from '@/types/types'
-const props = defineProps<Logo>()
+import type { Image } from '@/types/types'
+const props = defineProps<Image>()
 </script>
 <template>
   <img :src="props.src" :alt="props.alt" />

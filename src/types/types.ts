@@ -10,3 +10,8 @@ export interface NavItem {
   title: string
   id: number
 }
+
+export interface Image{
+  src: string
+  alt: string
+}

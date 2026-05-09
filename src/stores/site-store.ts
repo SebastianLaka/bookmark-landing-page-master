@@ -15,6 +15,7 @@ export const useSiteStore = defineStore('site-store', () => {
     if (width <= 992) {
       isMobile.value = true
       isDesktop.value = false
+      
     } else {
       isMobile.value = false
       isDesktop.value = true

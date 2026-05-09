@@ -6,5 +6,4 @@ const props = defineProps<Icon>()
   <img :src="props.src"/>
 </template>
 <style lang="scss" scoped>
-
 </style>
