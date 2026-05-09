@@ -24,7 +24,7 @@ const navList = ref([
 <template>
   <nav class="nav-menu">
     <NavLogo />
-    <NavMenu :items="navList" v-show="!siteStore.isMobile">
+    <NavMenu :items="navList">
       <template #login-cta>
         <ListButton class="navigation-cta">LOGIN</ListButton>
       </template>
