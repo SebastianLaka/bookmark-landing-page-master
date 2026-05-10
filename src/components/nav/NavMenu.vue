@@ -63,9 +63,8 @@ const props = defineProps<{
     opacity: 0;
   }
   .mobile-menu {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
+    @include position-element($position: fixed, $z-index: -1);
+    inset: 0; 
     @include flex-layout(
       $flex-direction: column,
       $align-items: center,
@@ -86,6 +85,10 @@ const props = defineProps<{
         &--link {
           color: map.get($colors, 'neutral-grey-50');
           font-size: 1.5rem;
+          transition: color .3s ease-in-out;
+          &:hover{
+            color: map.get($colors, 'primary-red-400');
+          }
         }
       }
     }
@@ -101,14 +104,18 @@ const props = defineProps<{
 }
 @media (min-width: $desktop-small) {
   .desktop-menu {
-    grid-column: 7/13;
-    position: static;
+    @include grid-child(7, 13);
+    @include position-element($position: static);
     .navigation-desktop {
       @include flex-layout($align-items: center, $justify-content: flex-end);
       @include set-gap(0, 2em);
       &__item {
         &--link {
           color: map.get($colors, 'neutral-blue-950');
+          transition: color .3s ease-in-out;
+          &:hover{
+          color: map.get($colors, 'primary-red-400');
+        }
         }
       }
     }
@@ -116,12 +123,12 @@ const props = defineProps<{
 }
 @media (min-width: $desktop-wide) {
   .desktop-menu {
-    grid-column: 8/12;
+    @include grid-child(8, 12);
   }
 }
 @media (min-width: $desktop-ultra-wide) {
   .desktop-menu {
-    grid-column: 7/11;
+    @include grid-child(7, 11);
   }
 }
 </style>

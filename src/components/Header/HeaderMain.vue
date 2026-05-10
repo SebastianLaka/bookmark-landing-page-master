@@ -33,6 +33,7 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
   .header-site {
     @include flex-layout($flex-direction: column);
     @include set-gap(2em, 0);
+    padding-top: 10em;
     .header-content {
       @include flex-layout($justify-content: center, $align-items: center, $flex-direction: column);
       @include set-gap(1em, 0);
@@ -54,13 +55,29 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
         padding: 0.75em 1.5em;
         background-color: map.get($colors, 'primary-blue-600');
         color: map.get($colors, 'neutral-grey-50');
-        border: none;
+        border: 0.15em solid map.get($colors, 'primary-blue-600');
         border-radius: 0.2em;
+        transition:
+          background-color 0.3s ease-in-out,
+          color 0.3s ease-in-out,
+          border-color 0.3s ease-in-out;
+        &:hover {
+          background-color: map.get($colors, 'neutral-grey-50');
+          color: map.get($colors, 'primary-blue-600');
+          border-color: map.get($colors, 'primary-blue-600');
+        }
       }
       &__firefox {
         background-color: map.get($colors, 'neutral-grey-50');
         color: map.get($colors, 'neutral-grey-600');
-        border-bottom: 0.1em solid map.get($colors, 'neutral-grey-600');
+        border: 0.15em solid map.get($colors, 'neutral-grey-50');
+        transition:
+          color 0.3s ease-in-out,
+          border 0.3s ease-in-out;
+        &:hover {
+          border-color: map.get($colors, 'neutral-blue-950');
+          color: map.get($colors, 'neutral-blue-950');
+        }
       }
     }
   }
@@ -79,12 +96,11 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
 }
 @media (min-width: $desktop-small) {
   .header-site {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    padding: 0 0 0 1.5em;
+    @include grid-layout($columns: 12);
+    padding: 2em 0 0 1.5em;
     .header-content {
       @include flex-layout($align-items: start);
-      grid-column: 1/6;
+      @include grid-child(1, 6);
       grid-row: 1/1;
       padding: 0;
       @include set-gap(2em, 0);
@@ -95,7 +111,7 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
     }
     .header-cta {
       align-self: flex-start;
-      grid-column: 1/6;
+      @include grid-child(1, 6);
       @include set-gap(0, 1.5em);
     }
   }
@@ -103,20 +119,20 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
 @media (min-width: $desktop-wide) {
   .header-site {
     .header-content {
-      grid-column: 2/6;
+      @include grid-child(2, 6);
     }
   }
 }
 @media (min-width: $desktop-ultra-wide) {
   .header-site {
-    padding: 0 0 0 .25em;
+    padding: 0 0 0 0.25em;
     .header-content {
-      grid-column: 3/6;
+      @include grid-child(3, 6);
     }
-    .header-cta{
+    .header-cta {
       &__chrome,
-      &__firefox{
-        font-size: .975rem;
+      &__firefox {
+        font-size: 0.975rem;
       }
     }
   }

@@ -12,22 +12,20 @@ import HeroBackground from '@/assets/images/illustration-hero.svg'
 @use 'sass:map';
 @use '@/assets/sass/colors.scss' as *;
 @use '@/assets/sass/breakpoints.scss' as *;
+@use '@/assets/sass/mixins.scss' as *;
 .header-hero-image-section {
-  position: relative;
+  @include position-element($position: relative);
   &__background {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    @include position-element($position:absolute, $bottom: 0, $right: 0, $z-index: -100);
     width: 80%;
     height: 80%;
     background-color: map.get($colors, 'primary-blue-600');
     border-bottom-left-radius: 6em;
-    z-index: -10;
   }
 }
 @media (min-width: $desktop-small){
   .header-hero-image-section{
-    grid-column: 7/13;
+    @include grid-child(7, 13);
   }
 }
 </style>

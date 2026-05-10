@@ -12,6 +12,8 @@ const siteStore = useSiteStore()
   </NavButton>
 </template>
 <style lang="scss" scoped>
+@use 'sass:map';
+@use '@/assets/sass/colors.scss' as *;
 .nav-button {
   padding: 0.5em;
   border: none;

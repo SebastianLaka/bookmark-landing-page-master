@@ -4,6 +4,7 @@ import HeaderMain from '@/components/Header/HeaderMain.vue';
 
 </script>
 <template>
+    
 <NavMain />
 <HeaderMain />
 <RouterView />
