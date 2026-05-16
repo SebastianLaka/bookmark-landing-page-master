@@ -125,6 +125,7 @@ const tabsData = ref([
 }
 @media (min-width: $desktop-wide) {
   .background-container {
+    @include grid-child(1, 2);
     &__image {
       width: 100%;
       height: 100%;
