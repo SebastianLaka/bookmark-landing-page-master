@@ -51,6 +51,7 @@ const activeTab = ref(props.defaultTab)
       border: none;
       padding: 1em 0;
       width: 12em;
+    
       &::before,
       &::after {
         position: absolute;
@@ -59,13 +60,15 @@ const activeTab = ref(props.defaultTab)
         left: -80%;
         right: -80%;
         background-color: map.get($colors, 'neutral-grey-600');
-        height: 0.01em;
+        height: 0.05em;
       }
       &:last-child::after {
-        top: 105%;
+        top: 106%;
       }
     }
-    
+    .add-border {
+      border-bottom: 0.2em solid map.get($colors, 'primary-red-400');
+    }
   }
   .tabs-content {
     @include flex-layout($justify-content: center, $align-items: center);
@@ -82,7 +85,7 @@ const activeTab = ref(props.defaultTab)
       flex-direction: row;
       .tab-button {
         width: 12em;
-        border-bottom: .1em solid map.get($colors, 'neutral-grey-600');
+        border-bottom: 0.1em solid map.get($colors, 'neutral-grey-600');
         &::before,
         &::after {
           display: none;
