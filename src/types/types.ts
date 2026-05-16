@@ -11,7 +11,20 @@ export interface NavItem {
   id: number
 }
 
-export interface Image{
+export interface Image {
   src: string
   alt: string
 }
+
+export interface Tabs {
+  id: number;
+  title: string;
+  content?: string; 
+}
+
+
+export interface defaultTab {
+  tabs: Tabs[];
+  defaultTab?: number; 
+}
+

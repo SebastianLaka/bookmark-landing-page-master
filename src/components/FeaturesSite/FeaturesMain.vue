@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import FeaturesHeader from './FeaturesHeader.vue'
+import FeaturesTabs from './FeaturesTabs.vue'
 </script>
 <template>
   <section class="features-main">
@@ -14,6 +15,7 @@ import FeaturesHeader from './FeaturesHeader.vue'
         </div>
       </template>
     </FeaturesHeader>
+    <FeaturesTabs />
   </section>
 </template>
 <style lang="scss" scoped>
@@ -23,12 +25,14 @@ import FeaturesHeader from './FeaturesHeader.vue'
 @use '@/assets/sass/mixins.scss' as *;
 @media (min-width: $mobile-view) {
   .features-main {
+    @include flex-layout($flex-direction: column);
+    @include set-gap(1.5em, 0);
     padding-top: 5em;
     .features-header-content {
       @include flex-layout($justify-content: center, $align-items: center, $flex-direction: column);
       @include set-gap(1em, 0);
       padding: 0 1em;
-      &__description{
+      &__description {
         text-align: center;
       }
     }
@@ -43,12 +47,21 @@ import FeaturesHeader from './FeaturesHeader.vue'
     }
   }
 }
-@media (min-width: $desktop-small){
-      .features-main {
+@media (min-width: $desktop-small) {
+  .features-main {
     .features-header-content {
       &__description {
-        max-width: 35ch;
+        max-width: 50ch;
       }
+    }
+  }
+}
+@media (min-width: $desktop-wide){
+  .features-main{
+    @include grid-layout($columns: 12);
+    .features-header-content{
+      @include grid-child(4,10);
+      padding: 0;
     }
   }
 }
