@@ -2,6 +2,7 @@
 import NavMain from '@/components/Nav/NavMain.vue';
 import HeaderMain from '@/components/Header/HeaderMain.vue';
 import FeaturesMain from '@/components/FeaturesSite/FeaturesMain.vue';
+import BrowserExtentions from '@/components/BrowserExtentions/ExtentionsMain.vue';
 
 </script>
 <template>
@@ -9,5 +10,6 @@ import FeaturesMain from '@/components/FeaturesSite/FeaturesMain.vue';
 <NavMain />
 <HeaderMain />
 <FeaturesMain/>
+<BrowserExtentions />
 <RouterView />
 </template>

@@ -57,6 +57,7 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
         color: map.get($colors, 'neutral-grey-50');
         border: 0.15em solid map.get($colors, 'primary-blue-600');
         border-radius: 0.2em;
+      
         transition:
           background-color 0.3s ease-in-out,
           color 0.3s ease-in-out,
@@ -130,9 +131,10 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
       @include grid-child(3, 6);
     }
     .header-cta {
+      padding: 0;
       &__chrome,
-      &__firefox {
-        font-size: 0.975rem;
+      &__firefox{
+        font-size: 0.925rem;
       }
     }
   }

@@ -17,14 +17,24 @@ export interface Image {
 }
 
 export interface Tabs {
-  id: number;
-  title: string;
-  content?: string; 
+  id: number
+  title: string
+  content?: string
 }
-
-
 export interface defaultTab {
-  tabs: Tabs[];
-  defaultTab?: number; 
+  tabs: Tabs[]
+  defaultTab?: number;
 }
 
+export interface Browser {
+  id: number
+  type: string
+  name: string
+  content: string
+   image: Image
+}
+
+export interface Browsers {
+  browser: Browser[];
+ 
+}
