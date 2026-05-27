@@ -23,7 +23,7 @@ export interface Tabs {
 }
 export interface defaultTab {
   tabs: Tabs[]
-  defaultTab?: number;
+  defaultTab?: number
 }
 
 export interface Browser {
@@ -31,10 +31,18 @@ export interface Browser {
   type: string
   name: string
   content: string
-   image: Image
+  image: Image
+}
+export interface Browsers {
+  browser: Browser[]
 }
 
-export interface Browsers {
-  browser: Browser[];
- 
+export interface AccordionItem {
+  id: number
+  question: string
+  content: string
+  isExpanded: boolean
+}
+export interface AccordionItems {
+  accordion: AccordionItem[]
 }

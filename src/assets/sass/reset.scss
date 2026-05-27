@@ -12,6 +12,7 @@ body{
   font-family: "Rubik", sans-serif;
   background-color: map.get($colors, 'neutral-grey-50');
   color: map.get($colors, 'neutral-grey-600');
+  overflow-x: hidden;
 }
 button{
   font-family: inherit;
@@ -27,4 +28,7 @@ a{
 img{
   display: block;
   width: 100%;
+}
+p{
+  line-height: 150%;
 }
