@@ -1,12 +1,12 @@
 export interface Logo {
   src: string
-  alt: string
+  alt?: string
 }
 export interface Icon {
   src: string
 }
 
-export interface NavItem {
+export interface MenuItem {
   title: string
   id: number
 }
@@ -46,3 +46,4 @@ export interface AccordionItem {
 export interface AccordionItems {
   accordion: AccordionItem[]
 }
+

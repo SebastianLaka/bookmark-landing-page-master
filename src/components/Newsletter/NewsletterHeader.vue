@@ -12,6 +12,7 @@
 .newsletter-header{
     @include flex-layout($flex-direction: column, $align-items: center);
     @include set-gap(1em, 0);
+    text-align: center;
     left: 150%;
     letter-spacing: .1em;
 }

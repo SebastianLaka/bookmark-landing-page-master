@@ -71,7 +71,7 @@ const browserData = ref([
 .extentions-main {
   @include flex-layout($flex-direction: column);
   @include set-gap(2em, 0);
-  padding: 8em 1.5em 0 1.5em;
+  padding: 0 1.5em;
   .extentions-header {
     &__description {
       max-width: 70ch;
@@ -94,19 +94,28 @@ const browserData = ref([
     }
   }
   .browser-button {
-    margin-top: 1em;
-    padding: 0.75em 2em;
-    border: 0;
-    border-radius: 0.4em;
-    background-color: map.get($colors, 'primary-blue-600');
     color: map.get($colors, 'neutral-grey-50');
+    background-color: map.get($colors, 'primary-blue-600');
+    border: 0.15em solid map.get($colors, 'neutral-grey-50');
+    padding: 0.75em 1em;
+    border-radius: 0.4em;
+    align-self: center;
+    transition:
+      color 0.3s ease-in-out,
+      border-color 0.3s ease-in-out,
+      background-color 0.3s ease-in-out;
+    &:hover {
+      background-color: map.get($colors, 'neutral-grey-50');
+      color: map.get($colors, 'primary-blue-600');
+      border-color: map.get($colors, 'primary-blue-600');
+    }
   }
 }
 @media (min-width: $desktop-small) {
   .extentions-main {
     @include grid-layout($columns: 12);
     grid-template-rows: repeat(4em, 4em, 4em);
-    padding: 8em 1.5em 1.5em 1.5em;
+    padding: 0 1.5em 1.5em 1.5em;
     .extentions-header {
       grid-column: 3/11;
       grid-row: 1/1;

@@ -28,11 +28,13 @@ const activeTab = ref(props.defaultTab)
       </TabButton>
     </div>
     <div class="tabs-content">
-      <div v-for="tab in tabs" :key="tab.id" v-show="activeTab === tab.id" class="tab-panel">
-        <slot :name="`tab-${tab.id}`">
-          {{ tab.content }}
-        </slot>
-      </div>
+      <TransitionGroup name="tab" tag="div" class="tabs-anim-wrapper">
+        <div v-for="tab in tabs" :key="tab.id" v-show="activeTab === tab.id" class="tab-panel">
+          <slot :name="`tab-${tab.id}`">
+            {{ tab.content }}
+          </slot>
+        </div>
+      </TransitionGroup>
     </div>
   </div>
 </template>
@@ -41,6 +43,22 @@ const activeTab = ref(props.defaultTab)
 @use '@/assets/sass/colors.scss' as *;
 @use '@/assets/sass/breakpoints.scss' as *;
 @use '@/assets/sass/mixins.scss' as *;
+.tab-enter-active,
+.tab-leave-active {
+  transition: opacity 0.15s ease-in, transform .3s ease-in; 
+}
+
+.tab-leave-active {
+  position: absolute; 
+}
+.tab-enter-from {
+  opacity: 0;
+  transform: translateX(15px);
+}
+.tab-leave-to {
+  opacity: 0;
+  transform: translateX(-15px); 
+}
 .tabs {
   @include flex-layout($flex-direction: column);
   @include set-gap(3em, 0);
@@ -51,7 +69,7 @@ const activeTab = ref(props.defaultTab)
       border: none;
       padding: 1em 0;
       width: 12em;
-    
+
       &::before,
       &::after {
         position: absolute;
@@ -71,11 +89,19 @@ const activeTab = ref(props.defaultTab)
     }
   }
   .tabs-content {
-    @include flex-layout($justify-content: center, $align-items: center);
+   @include flex-layout($justify-content: center, $align-items: center);
     text-align: center;
+    position: relative; 
+    width: 100%;
+    .tabs-anim-wrapper {
+      position: relative; 
+      width: 100%;
+      @include flex-layout($flex-direction: column); 
+    }
     .tab-panel {
       @include flex-layout($flex-direction: column);
       @include set-gap(6em, 0);
+      width: 100%; 
     }
   }
 }
@@ -92,8 +118,8 @@ const activeTab = ref(props.defaultTab)
         }
       }
       .add-border {
-      border-bottom: 0.2em solid map.get($colors, 'primary-red-400');
-    }
+        border-bottom: 0.2em solid map.get($colors, 'primary-red-400');
+      }
     }
   }
 }
@@ -104,9 +130,13 @@ const activeTab = ref(props.defaultTab)
       justify-content: center;
     }
     .tabs-content {
+      .tabs-anim-wrapper {
+        width: 100%;
+      }
       .tab-panel {
         @include grid-layout($columns: 2);
         @include set-gap(0, 4em);
+        height: 100%;
       }
     }
   }

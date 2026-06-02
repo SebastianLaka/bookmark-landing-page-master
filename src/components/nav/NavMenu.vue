@@ -5,9 +5,9 @@ import FacebookIcon from '@/assets/icons/icon-facebook.svg'
 import TwitterIcon from '@/assets/icons/icon-twitter.svg'
 import { RouterLink } from 'vue-router'
 import Icon from '../ReuseableComponents/Icon.vue'
-import type { NavItem } from '@/types/types'
+import type { MenuItem } from '@/types/types'
 const props = defineProps<{
-  items: NavItem[]
+  items: MenuItem[]
 }>()
 </script>
 <template>
@@ -98,6 +98,8 @@ const props = defineProps<{
       &__facebook-icon,
       &__twitter-icon {
         cursor: pointer;
+        width: 2em;
+        height: 2em;
       }
     }
   }

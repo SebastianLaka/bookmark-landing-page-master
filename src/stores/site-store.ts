@@ -5,8 +5,28 @@ export const useSiteStore = defineStore('site-store', () => {
   const isMobile = ref(false)
   const isDesktop = ref(false)
   const isOpen = ref(false)
+  const email = ref('');
+  const errMsg = ref(false);
 
-  const accordionContent = ref([
+
+
+  const toggleMenu = () => {
+    isOpen.value = !isOpen.value
+  }
+
+  const checkScreen = () => {
+    const width = window.innerWidth
+    if (width <= 992) {
+      isMobile.value = true
+      isDesktop.value = false
+    } else {
+      isMobile.value = false
+      isDesktop.value = true
+      isOpen.value = false
+    }
+  }
+
+    const accordionContent = ref([
     {
       id: 1,
       question: ' What is Bookmark?',
@@ -38,21 +58,18 @@ export const useSiteStore = defineStore('site-store', () => {
   ])
   const accordionExpand = () => accordionContent.value.map((accItem) => ({ ...accItem, isExpanded: false }))
 
-  const toggleMenu = () => {
-    isOpen.value = !isOpen.value
-  }
 
-  const checkScreen = () => {
-    const width = window.innerWidth
-    if (width <= 992) {
-      isMobile.value = true
-      isDesktop.value = false
+
+  
+const validateEmail = () => {
+  const regex = /\S+@\S+\.\S+/;
+  if (regex.test(email.value)) {
+        errMsg.value = false
     } else {
-      isMobile.value = false
-      isDesktop.value = true
-      isOpen.value = false
+        errMsg.value = true
     }
-  }
+}
+
   onMounted(() => {
     checkScreen()
     window.addEventListener('resize', checkScreen)
@@ -66,9 +83,12 @@ export const useSiteStore = defineStore('site-store', () => {
     isMobile,
     isOpen,
     isDesktop,
+    email,
+    errMsg,
     accordionContent,
     toggleMenu,
     accordionExpand,
+    validateEmail,
     checkScreen,
   }
 })

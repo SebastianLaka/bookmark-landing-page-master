@@ -95,7 +95,7 @@ const tabsData = ref([
     }
   }
   .tab-content {
-    @include flex-layout($flex-direction: column);
+    @include flex-layout($flex-direction: column, $justify-content: center, $align-items: center);
     @include set-gap(1em, 0);
     padding: 0 1em;
     &__header {
@@ -127,8 +127,9 @@ const tabsData = ref([
   .background-container {
     @include grid-child(1, 2);
     &__image {
-      width: 100%;
+      width: 80%;
       height: 100%;
+      object-fit: contain;
     }
   }
   .tab-content {

@@ -33,7 +33,7 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
   .header-site {
     @include flex-layout($flex-direction: column);
     @include set-gap(2em, 0);
-    padding-top: 10em;
+    padding-top: 6em;
     .header-content {
       @include flex-layout($justify-content: center, $align-items: center, $flex-direction: column);
       @include set-gap(1em, 0);

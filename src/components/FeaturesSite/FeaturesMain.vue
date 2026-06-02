@@ -15,7 +15,9 @@ import FeaturesTabs from './FeaturesTabs.vue'
         </div>
       </template>
     </FeaturesHeader>
-    <FeaturesTabs />
+    <Transition name="show-enter" mode="out-in">
+      <FeaturesTabs />
+    </Transition>
   </section>
 </template>
 <style lang="scss" scoped>
@@ -24,10 +26,19 @@ import FeaturesTabs from './FeaturesTabs.vue'
 @use '@/assets/sass/breakpoints.scss' as *;
 @use '@/assets/sass/mixins.scss' as *;
 @media (min-width: $mobile-view) {
+  .show-enter-active,
+.show-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.show-enter-from,
+.show-leave-to {
+  opacity: 0;
+}
   .features-main {
     @include flex-layout($flex-direction: column);
     @include set-gap(1.5em, 0);
-    padding-top: 5em;
+    padding-bottom: 1em;
     .features-header-content {
       @include flex-layout($justify-content: center, $align-items: center, $flex-direction: column);
       @include set-gap(1em, 0);
@@ -52,15 +63,16 @@ import FeaturesTabs from './FeaturesTabs.vue'
     .features-header-content {
       &__description {
         max-width: 50ch;
+        text-align: center;
       }
     }
   }
 }
-@media (min-width: $desktop-wide){
-  .features-main{
+@media (min-width: $desktop-wide) {
+  .features-main {
     @include grid-layout($columns: 12);
-    .features-header-content{
-      @include grid-child(4,10);
+    .features-header-content {
+      @include grid-child(4, 10);
       padding: 0;
     }
   }

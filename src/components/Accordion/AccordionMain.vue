@@ -27,7 +27,7 @@ const siteStore = useSiteStore()
   .accordion-main {
     @include flex-layout($flex-direction: column);
     @include set-gap(2em, 0);
-    padding: 8em 1.5em 0;
+    padding: 0 1.5em 0;
     .accordion-header{
       &__description{
         max-width: 70ch;

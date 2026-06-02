@@ -42,7 +42,16 @@ const navList = ref([
     @include flex-layout($justify-content: space-between, $align-items: center);
     padding: 1.5em;
     background-color: transparent;
-    @include position-element($position: fixed, $left: 0, $right: 0, $z-index: 100);
+    @include position-element($position: fixed, $left: 0, $right: 0, $z-index: 1);
+    &::before{
+      position: absolute;
+      content: '';
+      inset: 0 0 0 0;
+      backdrop-filter: blur(.5em);
+      height: 100%;
+      z-index: -1;
+      background-color: transparent;
+    }
   }
   .navigation-cta {
     border-radius: 0.4em;
@@ -66,6 +75,9 @@ const navList = ref([
   .nav-menu {
     @include position-element($position: static);
     @include grid-layout($columns: 12);
+    &::before{
+      display: none;
+    }
   }
   .navigation-cta {
     border: 0.15em solid map.get($colors, 'primary-red-400');
