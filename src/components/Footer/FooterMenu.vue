@@ -6,7 +6,11 @@ const props = defineProps<{
 </script>
 <template>
   <ul class="footer-menu">
-    <li v-for="footerItem in props.items" :key="footerItem.id" class="footer-menu__link">{{ footerItem.title }}</li>
+    <li v-for="footerItem in props.items" :key="footerItem.id" class="footer-menu__item">
+      <router-link to="/View" class="footer-menu__item--link">
+        {{ footerItem.title }}
+      </router-link>
+    </li>
   </ul>
 </template>
 <style lang="scss" scoped>
@@ -14,22 +18,23 @@ const props = defineProps<{
 @use '@/assets/sass/colors.scss' as *;
 @use '@/assets/sass/breakpoints.scss' as *;
 @use '@/assets/sass/mixins.scss' as *;
-.footer-menu{
-    @include flex-layout($flex-direction: column, $align-items: center);
-    @include set-gap(1.25em, 0);
-    &__link{
-      text-align: center;
+.footer-menu {
+  @include flex-layout($flex-direction: column, $align-items: center);
+  @include set-gap(1.25em, 0);
+  &__item {
+    text-align: center;
+    letter-spacing: 0.1em;
+    &--link {
       color: map.get($colors, 'neutral-grey-50');
-      letter-spacing: .1em;
-      cursor: pointer;
-      transition: color .3s ease-in-out;
-      &:hover{
-        color: map.get($colors, 'primary-red-400');;
+      transition: color 0.3s ease-in-out;
+      &:hover {
+        color: map.get($colors, 'primary-red-400');
       }
     }
+  }
 }
-@media (min-width: $desktop-small){
-  .footer-menu{
+@media (min-width: $desktop-small) {
+  .footer-menu {
     flex-direction: row;
     @include set-gap(0, 1.25em);
   }

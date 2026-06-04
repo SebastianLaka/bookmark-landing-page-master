@@ -15,7 +15,7 @@ const props = defineProps<AccordionItems>()
     >
       <div class="accordion-item">
         <AccordionButton class="accordion-button" @click="accItem.isExpanded = !accItem.isExpanded">
-          <p>{{ accItem.question }}</p>
+          <p class="accordion-button__item">{{ accItem.question }}</p>
           <AccordionIcon
             :src="ArrowIcon"
             class="accordion-button__icon"
@@ -51,6 +51,9 @@ const props = defineProps<AccordionItems>()
       width: 100%;
       border: none;
       padding: 0.5em 0;
+      &__item{
+        color: map.get($colors, 'neutral-blue-950');
+      }
       &__icon {
         width: 1em;
         transition:

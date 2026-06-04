@@ -20,7 +20,7 @@ const props = defineProps<{
           :title="navItem.title"
           class="navigation-mobile__item"
         >
-          <router-link to="/view" class="navigation-mobile__item--link">
+          <router-link to="/View" class="navigation-mobile__item--link">
             {{ navItem.title }}
           </router-link>
         </li>
@@ -40,7 +40,7 @@ const props = defineProps<{
         :title="navItem.title"
         class="navigation-desktop__item"
       >
-        <router-link to="/view" class="navigation-desktop__item--link">
+        <router-link to="/View" class="navigation-desktop__item--link">
           {{ navItem.title }}
         </router-link>
       </li>
@@ -75,7 +75,6 @@ const props = defineProps<{
     .navigation-mobile {
       width: 90%;
       &__item {
-        color: map.get($colors, 'neutral-grey-50');
         border-top: 0.05em solid map.get($colors, 'neutral-grey-600');
         padding: 1.5em;
         text-align: center;

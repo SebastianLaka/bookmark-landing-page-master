@@ -115,7 +115,7 @@ const browserData = ref([
   .extentions-main {
     @include grid-layout($columns: 12);
     grid-template-rows: repeat(4em, 4em, 4em);
-    padding: 0 1.5em 1.5em 1.5em;
+    padding: 0 1.5em;
     .extentions-header {
       grid-column: 3/11;
       grid-row: 1/1;

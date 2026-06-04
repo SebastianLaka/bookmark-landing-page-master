@@ -38,9 +38,6 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
       @include flex-layout($justify-content: center, $align-items: center, $flex-direction: column);
       @include set-gap(1em, 0);
       padding: 0 1em;
-      &__header {
-        color: map.get($colors, 'neutral-blue-950');
-      }
       &__header,
       &__description {
         text-align: center;
@@ -57,7 +54,6 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
         color: map.get($colors, 'neutral-grey-50');
         border: 0.15em solid map.get($colors, 'primary-blue-600');
         border-radius: 0.2em;
-      
         transition:
           background-color 0.3s ease-in-out,
           color 0.3s ease-in-out,
@@ -98,7 +94,7 @@ import HeaderButton from '../ReuseableComponents/Button.vue'
 @media (min-width: $desktop-small) {
   .header-site {
     @include grid-layout($columns: 12);
-    padding: 2em 0 0 1.5em;
+    padding: 0 0 0 1.5em;
     .header-content {
       @include flex-layout($align-items: start);
       @include grid-child(1, 6);

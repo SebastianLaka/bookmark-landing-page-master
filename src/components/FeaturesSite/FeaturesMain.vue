@@ -27,14 +27,13 @@ import FeaturesTabs from './FeaturesTabs.vue'
 @use '@/assets/sass/mixins.scss' as *;
 @media (min-width: $mobile-view) {
   .show-enter-active,
-.show-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.show-enter-from,
-.show-leave-to {
-  opacity: 0;
-}
+  .show-leave-active {
+    transition: opacity 0.3s ease;
+  }
+  .show-enter-from,
+  .show-leave-to {
+    opacity: 0;
+  }
   .features-main {
     @include flex-layout($flex-direction: column);
     @include set-gap(1.5em, 0);

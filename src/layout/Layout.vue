@@ -1,24 +1,16 @@
 <script setup lang="ts">
 import NavMain from '@/components/Nav/NavMain.vue'
-import HeaderMain from '@/components/Header/HeaderMain.vue'
-import FeaturesMain from '@/components/FeaturesSite/FeaturesMain.vue'
-import BrowserExtentions from '@/components/BrowserExtentions/ExtentionsMain.vue'
-import AccordionMain from '@/components/Accordion/AccordionMain.vue'
-import NewsletterMain from '@/components/Newsletter/NewsletterMain.vue'
+import { RouterView } from 'vue-router'
 import FooterMain from '@/components/Footer/FooterMain.vue'
 </script>
 <template>
   <main class="main">
     <NavMain />
-    <HeaderMain />
-    <FeaturesMain />
-    <BrowserExtentions />
-    <AccordionMain />
+    
+    <RouterView />
     <div class="footer-group">
-      <NewsletterMain />
       <FooterMain />
     </div>
-    <RouterView />
   </main>
 </template>
 
@@ -26,9 +18,13 @@ import FooterMain from '@/components/Footer/FooterMain.vue'
 @use '@/assets/sass/mixins.scss' as *;
 .main {
   position: relative;
-  @include flex-layout($flex-direction: column);
+  @include flex-layout($flex-direction: column, $justify-content: space-between);
   @include set-gap(6em, 0);
   overflow-x: hidden;
+  min-height: 100svh;
+  .footer-group {
+    margin-top: -6em;
+  }
 }
 
 </style>

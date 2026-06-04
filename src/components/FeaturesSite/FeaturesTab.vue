@@ -45,11 +45,13 @@ const activeTab = ref(props.defaultTab)
 @use '@/assets/sass/mixins.scss' as *;
 .tab-enter-active,
 .tab-leave-active {
-  transition: opacity 0.15s ease-in, transform .3s ease-in; 
+  transition:
+    opacity 0.15s ease-in,
+    transform 0.3s ease-in;
 }
 
 .tab-leave-active {
-  position: absolute; 
+  @include position-element($position: absolute);
 }
 .tab-enter-from {
   opacity: 0;
@@ -57,7 +59,7 @@ const activeTab = ref(props.defaultTab)
 }
 .tab-leave-to {
   opacity: 0;
-  transform: translateX(-15px); 
+  transform: translateX(-15px);
 }
 .tabs {
   @include flex-layout($flex-direction: column);
@@ -69,10 +71,9 @@ const activeTab = ref(props.defaultTab)
       border: none;
       padding: 1em 0;
       width: 12em;
-
       &::before,
       &::after {
-        position: absolute;
+       @include position-element($position: absolute);
         content: '';
         top: 0;
         left: -80%;
@@ -89,19 +90,19 @@ const activeTab = ref(props.defaultTab)
     }
   }
   .tabs-content {
-   @include flex-layout($justify-content: center, $align-items: center);
+    @include flex-layout($justify-content: center, $align-items: center);
     text-align: center;
-    position: relative; 
+    @include position-element($position: relative);
     width: 100%;
     .tabs-anim-wrapper {
-      position: relative; 
+      @include position-element($position: relative);
       width: 100%;
-      @include flex-layout($flex-direction: column); 
+      @include flex-layout($flex-direction: column);
     }
     .tab-panel {
       @include flex-layout($flex-direction: column);
       @include set-gap(6em, 0);
-      width: 100%; 
+      width: 100%;
     }
   }
 }

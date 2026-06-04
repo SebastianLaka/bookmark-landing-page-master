@@ -30,8 +30,8 @@ const logoData = ref({
 @media (min-width: $desktop-small){
   .logo-main{
     &__nav-logo{
-          width: 180px;
-          height: 32px;
+          width: 11.25em;
+          height: 2em;
         }
   }
 }
