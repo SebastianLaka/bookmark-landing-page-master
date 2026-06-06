@@ -3,7 +3,7 @@ import NavButton from '../ReuseableComponents/Button.vue'
 import NavIcon from '../ReuseableComponents/Icon.vue'
 import HamburgerIcon from '@/assets/icons/icon-hamburger.svg'
 import CloseIcon from '@/assets/icons/icon-close.svg'
-import { useSiteStore } from '../../stores/site-store'
+import { useSiteStore } from '../../stores/site-store.ts'
 const siteStore = useSiteStore()
 </script>
 <template>

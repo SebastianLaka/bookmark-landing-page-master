@@ -4,7 +4,7 @@ import NavLogo from './NavLogo.vue'
 import NavButton from './NavButton.vue'
 import NavMenu from './NavMenu.vue'
 import ListButton from '../ReuseableComponents/Button.vue'
-import { useSiteStore } from '../../stores/site-store'
+import { useSiteStore } from '../../stores/site-store.ts'
 const siteStore = useSiteStore()
 const navList = ref([
   {
@@ -43,11 +43,11 @@ const navList = ref([
     padding: 1.5em;
     background-color: transparent;
     @include position-element($position: fixed, $left: 0, $right: 0, $z-index: 1);
-    &::before{
+    &::before {
       position: absolute;
       content: '';
       inset: 0 0 0 0;
-      backdrop-filter: blur(.5em);
+      backdrop-filter: blur(0.5em);
       height: 100%;
       z-index: -1;
       background-color: transparent;
@@ -75,7 +75,7 @@ const navList = ref([
   .nav-menu {
     @include position-element($position: static);
     @include grid-layout($columns: 12);
-    &::before{
+    &::before {
       display: none;
     }
   }

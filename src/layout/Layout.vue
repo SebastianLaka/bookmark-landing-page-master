@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import NavMain from '@/components/Nav/NavMain.vue'
+import NavMain from '@/components/nav/NavMain.vue'
 import { RouterView } from 'vue-router'
 import FooterMain from '@/components/Footer/FooterMain.vue'
 </script>
 <template>
   <main class="main">
     <NavMain />
-    
+
     <RouterView />
     <div class="footer-group">
       <FooterMain />
@@ -26,5 +26,4 @@ import FooterMain from '@/components/Footer/FooterMain.vue'
     margin-top: -6em;
   }
 }
-
 </style>

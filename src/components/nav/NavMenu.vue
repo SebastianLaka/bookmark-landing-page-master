@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useSiteStore } from '../../stores/site-store'
+import { useSiteStore } from '../../stores/site-store.ts'
 const siteStore = useSiteStore()
 import FacebookIcon from '@/assets/icons/icon-facebook.svg'
 import TwitterIcon from '@/assets/icons/icon-twitter.svg'
@@ -64,7 +64,7 @@ const props = defineProps<{
   }
   .mobile-menu {
     @include position-element($position: fixed, $z-index: -1);
-    inset: 0; 
+    inset: 0;
     @include flex-layout(
       $flex-direction: column,
       $align-items: center,
@@ -84,8 +84,8 @@ const props = defineProps<{
         &--link {
           color: map.get($colors, 'neutral-grey-50');
           font-size: 1.5rem;
-          transition: color .3s ease-in-out;
-          &:hover{
+          transition: color 0.3s ease-in-out;
+          &:hover {
             color: map.get($colors, 'primary-red-400');
           }
         }
@@ -113,10 +113,10 @@ const props = defineProps<{
       &__item {
         &--link {
           color: map.get($colors, 'neutral-blue-950');
-          transition: color .3s ease-in-out;
-          &:hover{
-          color: map.get($colors, 'primary-red-400');
-        }
+          transition: color 0.3s ease-in-out;
+          &:hover {
+            color: map.get($colors, 'primary-red-400');
+          }
         }
       }
     }
