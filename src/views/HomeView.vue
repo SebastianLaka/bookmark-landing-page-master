@@ -34,7 +34,7 @@ const NewsletterMain = defineAsyncComponent(
 </template>
 <style scoped lang="scss">
 @use 'sass:map';
-
+@use '@/assets/sass/colors.scss' as *;
 @use '@/assets/sass/mixins.scss' as *;
 .site-wrapper{
 @include flex-layout($flex-direction: column);
@@ -45,5 +45,6 @@ const NewsletterMain = defineAsyncComponent(
   text-align: center;
   font-weight: 500;
   opacity: 0.7;
+  color: map.get($colors, 'neutral-blue-950');
 }
 </style>
